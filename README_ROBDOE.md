@@ -14,3 +14,8 @@ A cryptographic and physical state-machine framework embedded within the `scrcpy
    $$\frac{d\theta_i}{dt} = 1.0 + \frac{K}{N} \sum_{j \neq i} \sin(\theta_j - \theta_i)$$
 2. **Markov Transitions:** Probabilistic state migration mapped across discrete execution gates.
 3. **Theta Merkle Tree Roots:** Cryptographic reduction combining phase angles mapped to precessional arcseconds, current state identifiers, and Git commit leaves into a verifiable root hash tag.
+
+### Authoritative Domain
+
+- **Network Root:** [robdoe.com](http://www.robdoe.com)
+- **State Protocol:** Precessional Theta-Sync Lattice
