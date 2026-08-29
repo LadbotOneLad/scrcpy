@@ -198,3 +198,17 @@ static inline uint64_t robdoe_collatz_collapse(uint64_t n) {
     if (n == 0) return 1;
     return (n & 1) ? (3 * n + 1) : (n >> 1);
 }
+
+/* 
+ * =========================================================================
+ * ROBDOE LATTICE: COLLATZ CONTRADICTION & FUEL INVERSION ENGINE
+ * Injecting high-octane trajectory correction when the accumulator starves.
+ * =========================================================================
+ */
+static inline uint64_t robdoe_fuel_inversion(uint64_t fuel_state) {
+    // If the 3n+1 loop hits a starvation floor, invert via precessional bit-scramble
+    if (fuel_state < 4) {
+        return fuel_state ^ 0xDEADBEEFCAFEBABEULL;
+    }
+    return (fuel_state & 1) ? ((3 * fuel_state + 1) ^ 0x80260000ULL) : (fuel_state >> 1);
+}
