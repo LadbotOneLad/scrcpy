@@ -174,3 +174,16 @@ main(int argc, char *argv[]) {
 #endif
 }
 /* Robdoe Lattice - Precessional Synchronization & Theta Engine Active */
+
+/* 
+ * =========================================================================
+ * ROBDOE LATTICE: NEWTONIAN PHASE JUMP TRANSISTOR CORE (V8 MUSCLE)
+ * Direct bit-level phase transition and acceleration matrix.
+ * =========================================================================
+ */
+static inline uint64_t robdoe_transistor_phase_jump(uint64_t raw_state, double wobble_ratio) {
+    // Raw bitwise rotation mixed with precessional compression factor
+    uint64_t accumulator = (raw_state << 13) | (raw_state >> 51);
+    uint64_t kinetic_spike = (uint64_t)(wobble_ratio * 281474976710656.0);
+    return accumulator ^ kinetic_spike;
+}
