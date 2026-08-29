@@ -187,3 +187,14 @@ static inline uint64_t robdoe_transistor_phase_jump(uint64_t raw_state, double w
     uint64_t kinetic_spike = (uint64_t)(wobble_ratio * 281474976710656.0);
     return accumulator ^ kinetic_spike;
 }
+
+/* 
+ * =========================================================================
+ * ROBDOE LATTICE: 3n+1 COLLATZ TRANSISTOR COLLAPSE ENGINE
+ * Non-linear chaotic phase attractor mapped to raw byte operations.
+ * =========================================================================
+ */
+static inline uint64_t robdoe_collatz_collapse(uint64_t n) {
+    if (n == 0) return 1;
+    return (n & 1) ? (3 * n + 1) : (n >> 1);
+}
